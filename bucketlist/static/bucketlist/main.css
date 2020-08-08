@@ -46,7 +46,7 @@
 
 img {
   display: block;
-  border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 5px 5px;
 }
 
 .overlay{
@@ -56,11 +56,12 @@ img {
   width: 100%;
   opacity: 0;
   transition: 0.4s ease;
+  border-radius: 5px, 5px, 5px, 5px;
 }
 
 .container{
   width: 402px;
-  height: 402px;
+  height: 268px;
   margin: 16px;
   position: relative;
 }

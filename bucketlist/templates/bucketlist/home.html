@@ -1,24 +1,6 @@
-{% load static %}
+{% extends "layout.html" %}
 
-<link rel="stylesheet" href="{% static 'bucketlist/main.css' %}" type="text/css">
-
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title> Travel Home </title>
-  </head>
-
-  <body>
-
-    <div class = "header">
-      <h1> Travel Bucket-List </h1>
-      <div class="topnav">
-        <a class="active" href="#home">Home</a>
-        <a class="active" href="#home">Contact-Us</a>
-        <a class="active" href="#home">Plan</a>
-        <a class="active" href="#home">Featured</a>
-      </div>
-    </div>
+{% block content %}
 
     <div class="flex-container">
 
@@ -27,7 +9,7 @@
 
       <div class="container">
           <div>
-            <img src="/{{name.pic_url}}" alt="flag" width="100%">
+            <img src="/{{name.pic_url}}" alt="flag" width="402px">
             <div class="overlay">
               <div class="text"> {{name.country_name}} </div>
             </div>
@@ -37,6 +19,4 @@
     {% endif %}
 
     </div>
-
-  </body>
-</html>
+{% endblock content %}

@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block content %}
+ <h1> Contact Us </h1>
+
+<form method="POST" class="contact-form">
+  {% csrf_token %}
+  <div class="contact-form">
+    <label for="username"> Enter Your name </label>
+      <div> <input id="username" type="text" value="{{context.username}}"> </div>
+  </div>
+  <div class="contact-form">
+    <label for="email"> Enter Your Email </label>
+      <div> <input id="email" type="text" value="{{context.email}}"> </div>
+  </div>
+  <div class="contact-form">
+    <label for="subject"> Subject </label>
+      <div> <input id="subject" type="text" value="{{context.subject}}"> </div>
+  </div>
+
+  <div class="contact-form-">
+    <label for="message"> Write Your Heart Out </label>
+      <div> <input id="username" type="textarea" value="{{context.message}}"> </div>
+  </div>
+
+  <div class="contact-form">
+    <div> <input type="submit" value="Submit"> </div>
+  </div>
+</form>
+
+{% endblock content %}
