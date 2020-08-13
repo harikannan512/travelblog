@@ -1,7 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
-from django.contrib import messages
-from .models import Countries, ContactForm
+from .models import Countries
+from .forms import ContactForm
 
 
 # Create your views here.
@@ -13,12 +12,20 @@ def home(request):
 
 def contact_us(request):
     form = ContactForm(request.POST)
-    context = {'form': form}
     if request.method == 'POST':
         if form.is_valid():
-            context['form'].contactMail()
-            messages.add_message(request, messages.SUCCESS, 'Thank you for your messages.')
-            return HttpResponseRedirect(request, 'bucketlist/contact_us.html', context)
+            form.contactMail()
+            message = "Thank you for your messages."
+            return render(request, '/bucketlist/', {'form': form, 'message': message})
+
         else:
+
             form = ContactForm()
-    return render(request, 'bucketlist/contact_us.html', context)
+
+    return render(request, 'bucketlist/contact_us.html', {'form': form})
+
+
+def country_blog(request, id):
+    name = Countries.objects.get(pk=id)
+    blogpost = name.countrypage_set.all()
+    return render(request, 'bucketlist/country_page.html', {'blogpost': blogpost, 'name': name})

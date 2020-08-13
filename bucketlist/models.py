@@ -1,6 +1,4 @@
 from django.db import models
-from django import forms
-from django.core.mail import send_mail
 
 
 class Countries(models.Model):
@@ -15,17 +13,9 @@ class Countries(models.Model):
         return self.img_url
 
 
-class ContactForm(forms.Form):
-    username = forms.CharField(label="Your Name", max_length=20)
-    email = forms.EmailField(label="Your Email Address", max_length=50)
-    subject = forms.CharField(label="Subject")
-    message = forms.CharField(label="Write your heart out", widget=forms.Textarea)
+class CountryPage(models.Model):
+    title = models.CharField(max_length=250)
+    content = models.TextField()
+    pub_date = models.DateField()
 
-    def contactMail(self):
-        if self.is_valid():
-            subject = self.cleaned_data['self.subject']
-            message = self.cleaned_data['self.message']
-            sender = self.cleaned_data['self.email']
-
-            recipients = ['harikannan512@gmail.com']
-            send_mail(subject, message, sender, recipients)
+    c_name = models.ForeignKey(Countries, on_delete=models.CASCADE)
