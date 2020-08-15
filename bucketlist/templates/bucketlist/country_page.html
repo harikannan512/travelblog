@@ -3,14 +3,14 @@
 
 <div class="jumbotron jumbotron-fluid">
   <h1 class="dsiplay-4"> {{ name }} </h1>
-  <p class = "lead"> Description about the country. Currency, language, etc </p>
+  <p class = "lead"> Description about the country. {{ name.description }} </p>
 </div>
 
-<div class="container">
+<div>
   {% if blogpost %}
-      {% for link in blogpost %}
-      <div>
-        <a href="#"> {{ link.title }} </a>
+    {% for link in blogpost %}
+      <div class="container">
+        <a href="{{link.pk}}"> {{ link.title }} </a>
       </div>
       {% endfor %}
   {% endif %}

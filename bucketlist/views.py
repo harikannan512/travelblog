@@ -25,7 +25,16 @@ def contact_us(request):
     return render(request, 'bucketlist/contact_us.html', {'form': form})
 
 
-def country_blog(request, id):
-    name = Countries.objects.get(pk=id)
+def country_blog(request, country):
+    name = Countries.objects.get(country_name=country)
     blogpost = name.countrypage_set.all()
     return render(request, 'bucketlist/country_page.html', {'blogpost': blogpost, 'name': name})
+
+
+def article_page(request, country, id):
+    name = Countries.objects.get(country_name=country)
+    if name:
+        blogpost = name.countrypage_set.get(pk=id)
+        return render(request, 'bucketlist/article_page.html', {'blogpost': blogpost, 'name': name})
+    else:
+        return render(request, 'bucketlist/', {'name': name})
