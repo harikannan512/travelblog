@@ -6,19 +6,12 @@
 
  <h1> Contact Us </h1>
 
-{% if message %}
-<div class="alert alert-light" role="alert">
-  <ul class="messages">
-    {% for msg in message %}
-        <li> {{ msg }} </li>
-    {% endfor %}
-  </ul>
-</div>
-{% endif %}
+
 
 
     <form method="POST" class="contact-form">
       {% csrf_token %}
+      <fieldset class="form-group">
 
       <div class="form-group">
         <label for="username"> Enter Your name </label>
@@ -44,6 +37,7 @@
       <div class="form-group">
         <div> <input type="submit" value="Submit"> </div>
       </div>
+      </fieldset>
     </form>
   </div>
 </div>

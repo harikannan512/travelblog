@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib import messages
 from .models import Countries
 from .forms import ContactForm
 
@@ -15,8 +16,8 @@ def contact_us(request):
     if request.method == 'POST':
         if form.is_valid():
             form.contactMail()
-            message = "Thank you for your messages."
-            return render(request, '/bucketlist/', {'form': form, 'message': message})
+            messages.success(request, 'Thank you for your kind thoughts')
+            return redirect('home')
 
         else:
 

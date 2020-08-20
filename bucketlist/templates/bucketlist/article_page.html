@@ -2,7 +2,9 @@
 
 {% block content %}
 
-  <div class="jumbotron jumbotron-fluid"> {{ blogpost.title }} </div>
+  <div class="jumbotron jumbotron-fluid">
+  <h1 class="display-4"> {{ blogpost.title }} </h1>
+  </div>
   <div> {{blogpost.content}} </div>
 
 {% endblock %}

@@ -15,8 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from users import views as users_views
+from bucketlist import views as bucketlist_views
 
 urlpatterns = [
     path('bucketlist/', include('bucketlist.urls')),
+    path('bucketlist/home', bucketlist_views.home, name='home'),
+    path('register/', users_views.register, name='register'),
     path('admin/', admin.site.urls),
 ]
