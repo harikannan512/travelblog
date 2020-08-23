@@ -17,22 +17,14 @@
     <form method="POST" class="contact-form">
       {% csrf_token %}
       <fieldset class="form-group">
-        <legend class="border-bottom mb-4"> Join us </legend>
+        <legend class="border-bottom mb-4"> Welcome {{user}} </legend>
           {{ form|crispy }}
       </fieldset>
 
       <div class="form-group">
-        <button class="btn btn-outlint-info">Sign Up</button>
-      </div>
-      <div class="form-group">
-        <button class="btn btn-outline-info" type="submit">Sign Up</button>
+        <button class="btn btn-outline-info" type="submit"> Update </button>
       </div>
     </form>
 
-    <div class="border-top pt-3">
-      <small class="test-muted">
-        Already Have an account? <a href="{% url 'login' %}"> Click here </a>
-      </small>
-  </div>
 </div>
 {% endblock content %}
