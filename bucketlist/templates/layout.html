@@ -23,14 +23,19 @@
 
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <div class="topnav">
-          <a class="active" href="/bucketlist/">Home</a>
-          <a class="active" href="/bucketlist/contact_us/">Contact-Us</a>
+          <a class="active" href="{% url 'home' %}">Home</a>
+          <a class="active" href="{% url 'contact_us' %}">Contact</a>
           <a class="active" href="#home">Plan</a>
-          <a class="active" href="#home">Featured</a>
+          {% if user.is_authenticated %}
+          <a class="active" href="{% url 'logout' %}"> Log Out </a>
+          <a class="active" href="{% url 'profile' %}"> {{user.username}} </a>
+          {% else %}
+            <a class="active" href="{% url 'login' %}"> Log In </a>
+            <a class="active" href="{% url 'register' %}"> Register </a>
+          {% endif %}
         </div>
       </div>
     </nav>
-
     {% if messages %}
       {% for msg in messages %}
         <div class="alert alert-{{msg.tags}}"> {{ msg }} </div>

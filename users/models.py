@@ -13,6 +13,10 @@ class Bloguser(User):
         User.objects.create_user(self.username, self.email, self.password)
 
 
+class Profile(models.Model):
+    profile = models.OneToOneField(Bloguser, on_delete=models.CASCADE)
+
+
 class PostSubmission(models.Model):
     title = models.CharField(max_length=160)
     content = models.TextField()

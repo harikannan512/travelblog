@@ -22,6 +22,7 @@ from bucketlist import views as bucketlist_views
 urlpatterns = [
     path('bucketlist/', include('bucketlist.urls')),
     path('bucketlist/home', bucketlist_views.home, name='home'),
+    path('contact_us/', bucketlist_views.contact_us, name='contact_us'),
 
     path('register/', users_views.register, name='register'),
     path('profile/', users_views.update_info, name='profile'),
