@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+
+{% if post %}
+<div class="jumbotron jumbotron-fluid ml-2">
+  <h1 class="dsiplay-4 ml-2"> {{ author }} </h1>
+  <img class="rounded-circle account-img" src="{{ author.profile_pic.url }}">
+</div>
+
+<div>
+    {% for post in post %}
+        <a href="{{post.pk}}"> <h3 class="ml-2"> {{ post.title }} </h3> </a>
+        <article class="media content-section">
+            <div class="media-body">
+              <div class="article-metadata">
+             <a class="mr-2" href="127.0.0.1:8000/author/{{post.author.id}}">{{ post.author }}</a>
+             <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+           </div>
+           <p class="article-content">{{ post.content }}</p>
+         </div>
+        </article>
+      {% endfor %}
+<div>
+
+
+{% endif %}
+{% endblock %}

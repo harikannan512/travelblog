@@ -188,10 +188,11 @@ a.article-title:hover {
   white-space: pre-line;
 }
 
-.article-img {
-  height: 65px;
-  width: 65px;
+.article-pic {
+  height: 50px;
+  width: 50px;
   margin-right: 16px;
+  margin-bottom: 12px;
 }
 
 .article-metadata {
