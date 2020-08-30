@@ -1,21 +1,23 @@
 from django.db import models
+from users.models import Bloguser
 
 
-class Countries(models.Model):
-    country_name = models.CharField(max_length=20)
+class Continent(models.Model):
+    continent_name = models.CharField(max_length=20)
     description = models.TextField()
     img_url = models.CharField(max_length=30, default='static/default.jpg')
 
     def __str__(self):
-        return self.country_name
+        return self.continent_name
 
     def pic_url(self):
         return self.img_url
 
 
-class CountryPage(models.Model):
+class Article(models.Model):
     title = models.CharField(max_length=250)
     content = models.TextField()
     pub_date = models.DateField()
 
-    c_name = models.ForeignKey(Countries, on_delete=models.CASCADE)
+    author = models.ForeignKey(Bloguser, on_delete=models.CASCADE)
+    c_name = models.ForeignKey(Continent, on_delete=models.CASCADE)

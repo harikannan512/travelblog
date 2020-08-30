@@ -1,10 +1,10 @@
 from django.contrib import admin
-from .models import Countries, CountryPage
+from .models import Continent, Article
 
 
-class CountryPageAdmin(admin.ModelAdmin):
-    fields = ['c_name', 'title', 'content', 'pub_date']
+class ArticleAdmin(admin.ModelAdmin):
+    fields = ['c_name', 'title', 'content', 'pub_date', 'author']
 
 
-admin.site.register(CountryPage, CountryPageAdmin)
-admin.site.register(Countries)
+admin.site.register(Article, ArticleAdmin)
+admin.site.register(Continent)
