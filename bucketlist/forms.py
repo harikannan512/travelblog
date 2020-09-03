@@ -1,6 +1,9 @@
 from django import forms
 from django.conf import settings
 from django.core.mail import send_mail
+from django.forms import ModelForm
+
+from .models import Article
 
 
 class ContactForm(forms.Form):
@@ -16,3 +19,10 @@ class ContactForm(forms.Form):
         recipients = ['hari.kannan@outlook.com']
 
         send_mail(subject, message, sender, recipients, fail_silently=False)
+
+
+class NewPost(ModelForm):
+
+    class Meta:
+        model = Article
+        fields = ['c_name', 'title', 'content']

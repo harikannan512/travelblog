@@ -25,6 +25,7 @@ urlpatterns = [
     path('bucketlist/', include('bucketlist.urls')),
     path('bucketlist/home', bucketlist_views.home, name='home'),
     path('contact_us/', bucketlist_views.contact_us, name='contact_us'),
+    path('new_post/', bucketlist_views.new_post, name='new_post'),
 
     path('register/', users_views.register, name='register'),
     path('profile/', users_views.update_info, name='profile'),

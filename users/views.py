@@ -7,17 +7,22 @@ from .models import Bloguser
 
 
 def register(request):
-    if request.method == 'POST':
-        form = RegisterForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            messages.success(request, f'Account created for {username}!')
-            return redirect('home')
+    user = request.user
+    if not user:
+        if request.method == 'POST':
+            form = RegisterForm(request.POST)
+            if form.is_valid():
+                form.save()
+                username = form.cleaned_data.get('username')
+                messages.success(request, f'Account created for {username}!')
+                return redirect('home')
+        else:
+            form = RegisterForm()
+        return render(request, 'users/register.html', {'form': form})
 
     else:
-        form = RegisterForm()
-    return render(request, 'users/register.html', {'form': form})
+        messages.error(request, 'You need to log out first')
+        return redirect('logout')
 
 
 @login_required
