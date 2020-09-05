@@ -5,7 +5,13 @@
   <div class="jumbotron jumbotron-fluid">
     <h1 class="display-4 ml-4"> {{ post.title }} </h1>
     <p class="lead ml-4">
-      <img class="rounded-circle article-pic"  src="{{post.author.profile_pic.url}}">  <a href="//127.0.0.1:8000/author/{{post.author.id}}"> {{post.author}} </a> </p>
+      <img class="rounded-circle article-pic"  src="{{post.author.profile_pic.url}}">  <a href="/author/{{post.author.id}}"> {{post.author}} </a>
+    </p>
+      {% if request.user.username == post.author.username %}
+      <div class="ml-4">  <button class="btn btn-outline-dark"> <a href="/bucketlist/{{post.c_name.pk}}/{{post.pk}}/update"> Update </a> </button>
+      <div class="ml-4">  <button class="btn btn-outline-danger"> <a href="/bucketlist/{{post.c_name.pk}}/{{post.pk}}/delete"> Delete </a> </button>
+      </div>
+      {% endif %}
   </div>
   <div class="ml-4"> {{post.content}} </div>
 

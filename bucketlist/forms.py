@@ -26,3 +26,10 @@ class NewPost(ModelForm):
     class Meta:
         model = Article
         fields = ['c_name', 'title', 'content']
+
+
+class UpdatePost(ModelForm):
+
+    class Meta:
+        model = Article
+        fields = ['c_name', 'title', 'content']

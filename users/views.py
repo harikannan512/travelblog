@@ -25,6 +25,12 @@ def register(request):
         return redirect('logout')
 
 
+def author(request, id):
+    author = Bloguser.objects.get(pk=id)
+    post = author.article_set.all()
+    return render(request, 'users/author.html', {'author': author, 'post': post})
+
+
 @login_required
 def update_info(request):
 
@@ -56,17 +62,3 @@ def update_info(request):
             messages.warning(request, f'Form is not valid {username}!')
             return redirect('profile')
     return render(request, 'users/profile.html', {'form': form, 'user': user, 'url': url})
-
-
-def author(request, id):
-    author = Bloguser.objects.get(pk=id)
-    post = author.article_set.all()
-
-    init = request.user
-    uname = init.username
-    user = Bloguser.objects.get(username=uname)
-
-    if user == author:
-        return redirect('profile')
-    else:
-        return render(request, 'users/author.html', {'author': author, 'post': post})
