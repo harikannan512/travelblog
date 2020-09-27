@@ -7,8 +7,9 @@ from .models import Bloguser
 
 
 def register(request):
+    form = RegisterForm(request.POST)
     user = request.user
-    if not user:
+    if user:
         if request.method == 'POST':
             form = RegisterForm(request.POST)
             if form.is_valid():
@@ -16,13 +17,15 @@ def register(request):
                 username = form.cleaned_data.get('username')
                 messages.success(request, f'Account created for {username}!')
                 return redirect('home')
-        else:
-            form = RegisterForm()
-        return render(request, 'users/register.html', {'form': form})
+            elif request.method == 'GET':
+                form = RegisterForm()
+                return render(request, 'users/register.html', {'form': form})
 
     else:
         messages.error(request, 'You need to log out first')
         return redirect('logout')
+
+    return render(request, 'users/register.html', {'form': form})
 
 
 def author(request, id):

@@ -8,9 +8,33 @@
       <img class="rounded-circle article-pic"  src="{{post.author.profile_pic.url}}">  <a href="/author/{{post.author.id}}"> {{post.author}} </a>
     </p>
       {% if request.user.username == post.author.username %}
-      <div class="ml-4">  <button class="btn btn-outline-dark"> <a href="/bucketlist/{{post.c_name.pk}}/{{post.pk}}/update"> Update </a> </button>
-      <div class="ml-4">  <button class="btn btn-outline-danger"> <a href="/bucketlist/{{post.c_name.pk}}/{{post.pk}}/delete"> Delete </a> </button>
+      <div class="ml-4">
+        <button class="btn btn-outline-dark"> <a href="/bucketlist/{{post.c_name.pk}}/{{post.pk}}/update"> Update </a> </button>
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeletePost">
+        Delete
+        </button>
       </div>
+
+      <div class="modal fade" id="DeletePost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Are you sure you want to delete this post?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-danger btn active"> <a href="/bucketlist/{{post.c_name.pk}}/{{post.pk}}/delete"> Delete </a> </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {% endif %}
   </div>
   <div class="ml-4"> {{post.content}} </div>

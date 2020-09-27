@@ -1,11 +1,14 @@
 {% extends "layout.html" %}
+
 {% block content %}
 
-<h2> You have been logged out </h2>
+
+<h2> Post deleted </h2>
 
     <div class="border-top pt-3 ml-4">
       <small class="test-muted">
-        Want to log in? <a href="{% url 'login' %}"> Click here </a>
+        Return to <a href="{% url 'home' %}"> Home </a>
       </small>
     </div>
-{% endblock content %}
+
+{% endblock %}
