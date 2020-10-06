@@ -150,9 +150,9 @@ LOGIN_REDIRECT_URL = 'home'
 SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
 
 django_heroku.settings(locals())
-
-ALLOWED_HOSTS = ['*']
-
-DATABASES = {'default': dj_database_url.config()}
-
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED PROTO', 'https')
+ 
+# ALLOWED_HOSTS = ['*']
+#
+# DATABASES = {'default': dj_database_url.config()}
+#
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED PROTO', 'https')
