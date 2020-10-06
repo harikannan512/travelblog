@@ -93,7 +93,7 @@ DATABASES = {
         'NAME': 'django',
         'USER': 'harikannan',
         'PASSWORD': 'harivenk',
-        'HOST': 'heroku',
+        'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }
@@ -150,9 +150,9 @@ LOGIN_REDIRECT_URL = 'home'
 SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
 
 django_heroku.settings(locals())
- 
-# ALLOWED_HOSTS = ['*']
-#
-# DATABASES = {'default': dj_database_url.config()}
-#
-# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED PROTO', 'https')
+
+ALLOWED_HOSTS = ['*']
+
+DATABASES = {'default': dj_database_url.parse('postgresql://harikannan:harivenk@:5432/django')}
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED PROTO', 'https')
