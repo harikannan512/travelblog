@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import django_heroku
+import dj_database_url
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -91,7 +93,7 @@ DATABASES = {
         'NAME': 'django',
         'USER': 'harikannan',
         'PASSWORD': 'harivenk',
-        'HOST': '127.0.0.1',
+        'HOST': 'heroku',
         'PORT': '5432',
     }
 }
@@ -148,3 +150,9 @@ LOGIN_REDIRECT_URL = 'home'
 SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
 
 django_heroku.settings(locals())
+
+ALLOWED_HOSTS = ['*']
+
+DATABASES = {'default': dj_database_url.config()}
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED PROTO', 'https')
