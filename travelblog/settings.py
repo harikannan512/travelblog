@@ -153,6 +153,6 @@ django_heroku.settings(locals())
 
 ALLOWED_HOSTS = ['*']
 
-DATABASES = {'default': dj_database_url.parse('postgresql://harikannan:harivenk@:5432/django')}
+DATABASES = {'default': dj_database_url.config()}
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED PROTO', 'https')
