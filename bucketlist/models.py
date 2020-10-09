@@ -5,13 +5,10 @@ from users.models import Bloguser
 class Continent(models.Model):
     continent_name = models.CharField(max_length=20)
     description = models.TextField()
-    img_url = models.CharField(max_length=30, default='static/default.jpg')
+    continent_img = models.ImageField(upload_to='continent_img/{id}', blank=False, default='default.jpg')
 
     def __str__(self):
         return self.continent_name
-
-    def pic_url(self):
-        return self.img_url
 
 
 class Article(models.Model):

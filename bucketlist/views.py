@@ -12,8 +12,7 @@ from users.models import Bloguser
 # Create your views here.
 def home(request):
     name_list = Continent.objects.all()
-    context = {'name_list': name_list}
-    return render(request, 'bucketlist/home.html', context)
+    return render(request, 'bucketlist/home.html', {'name_list': name_list})
 
 
 def contact_us(request):
