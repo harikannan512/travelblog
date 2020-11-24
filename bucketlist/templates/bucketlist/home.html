@@ -4,6 +4,8 @@
 
     <div class="flex-container">
 
+      <canvas class="myCanvas"> </canvas>
+
     {% if name_list %}
     {% for name in name_list %}
 
@@ -18,6 +20,8 @@
       </div>
     {% endfor %}
     {% endif %}
+
+    <script src="home.js" async> </script>
 
     </div>
 {% endblock content %}

@@ -18,7 +18,7 @@ class ContactForm(forms.Form):
         sender = settings.EMAIL_HOST_USER
         recipients = ['hari.kannan@outlook.com']
 
-        send_mail(subject, message, sender, recipients, fail_silently=False)
+        send_mail(subject, message, sender, recipients, fail_silently='false')
 
 
 class NewPost(ModelForm):
