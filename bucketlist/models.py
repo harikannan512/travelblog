@@ -10,6 +10,10 @@ class Continent(models.Model):
     def __str__(self):
         return self.continent_name
 
+    def img_url(self):
+        url = f'static/{self.continent_name}.jpg'
+        return str(url)
+
 
 class Article(models.Model):
     title = models.CharField(max_length=250)

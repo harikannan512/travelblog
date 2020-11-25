@@ -1,27 +1,20 @@
 {% extends "layout.html" %}
 
 {% block content %}
-
     <div class="flex-container">
-
-      <canvas class="myCanvas"> </canvas>
-
-    {% if name_list %}
-    {% for name in name_list %}
-
-      <div class="container">
-          <div>
-            <img src="{{ name.continent_img.url }}" alt="flag" class="img-responsive">
-            <a href="{{name.pk}}">
-            <div class="overlay">
-              <div class="text"> {{name.continent_name}} </div>
+        {% if name_list %}
+          {% for name in name_list %}
+            <div class="container">
+              <div>
+                <img src="/{{name.img_url}}" alt="flag" class="img-responsive">
+                <a href="{{name.pk}}">
+                <div class="overlay">
+                  <div class="text"> {{name}} </div>
+                </div>
+              </div>
             </div>
-          </div>
-      </div>
-    {% endfor %}
-    {% endif %}
-
-    <script src="home.js" async> </script>
+          {% endfor %}
+        {% endif %}
 
     </div>
 {% endblock content %}
