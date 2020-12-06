@@ -12,8 +12,6 @@ from users.models import Bloguser
 # Create your views here.
 def home(request):
     name_list = Continent.objects.all()
-    for name in name_list:
-        print(str(name.img_url))
     return render(request, 'bucketlist/home.html', {'name_list': name_list})
 
 

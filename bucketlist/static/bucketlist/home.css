@@ -4,7 +4,13 @@
   text-align: left;
   margin: 0px;
   background-color: #f0efee;
+}
+
+.cover-board {
   background-image: url("google-earth.jpg");
+  height: 100%;
+  width: 100%;
+  background-size: cover;
   background-attachment: fixed;
 }
 
