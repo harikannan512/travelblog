@@ -50,22 +50,25 @@
       {% endfor %}
     {% endif %}
 
-    <div class="flex-container">
-        {% if name_list %}
-          {% for name in name_list %}
-            <div class="container">
-              <div>
-                <img src="/{{name.img_url}}" alt="flag" class="img-responsive">
-                <a href="{{name.pk}}">
-                <div class="overlay">
-                  <div class="text"> {{name}} </div>
+    <div class="content">
+      <div class="flex-container">
+          {% if name_list %}
+            {% for name in name_list %}
+              <div class="container">
+                <div>
+                  <img src="/{{name.img_url}}" alt="flag" class="img-responsive">
+                  <a href="{{name.pk}}">
+                  <div class="overlay">
+                    <div class="text"> {{name}} </div>
+                  </div>
                 </div>
               </div>
-            </div>
+
           {% endfor %}
         {% endif %}
 
     </div>
+  </div>
 
     <!-- Optional JavaScript -->
    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
