@@ -9,7 +9,7 @@ from .models import Bloguser
 def register(request):
     form = RegisterForm(request.POST)
     user = request.user
-    if user:
+    if user.is_anonymous:
         if request.method == 'POST':
             form = RegisterForm(request.POST)
             if form.is_valid():
@@ -21,9 +21,9 @@ def register(request):
                 form = RegisterForm()
                 return render(request, 'users/register.html', {'form': form})
 
-    else:
-        messages.error(request, 'You need to log out first')
-        return redirect('logout')
+    elif user.is_authenticated:
+        messages.info(request, 'You are already registered......vis a vis logged in idiot')
+        return redirect('home')
 
     return render(request, 'users/register.html', {'form': form})
 
